@@ -5,7 +5,7 @@ import About from "./components/About";
 
 function App() {
   return (
-    <div className="text-gray-800 text-lg">
+    <div className="text-gray-800">
       <Router>
         <Navbar />
         <Switch>
