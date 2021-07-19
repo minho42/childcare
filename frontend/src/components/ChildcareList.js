@@ -67,14 +67,17 @@ const ChildcareList = () => {
               onChange={handleSearchQueryChange}
               type="text"
               placeholder="Name or address"
-              className="pl-6 pr-24 py-2 rounded-lg w-full border border-gray-300 focus:border-gray-800 bg-gray-100 focus:outline-none"
+              className="pl-6 pr-24 py-2 rounded-lg w-full border border-gray-300 focus:border-gray-500 bg-gray-100 focus:outline-none"
               autoFocus
             />
 
-            <div className="absolute inset-y-1 right-0 flex items-center">
-              <button onClick={doSearch} className="flex bg-gray-800 text-white px-3 py-2 rounded-lg">
+            <div>
+              <button
+                onClick={doSearch}
+                className="absolute inset-y-0 right-0 h-full flex items-center  text-gray-500 hover:text-gray-800 px-3 py-2 rounded-lg focus:outline-none"
+              >
                 <svg
-                  className="w-8 h-8"
+                  className="w-6 h-6"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -91,7 +94,10 @@ const ChildcareList = () => {
 
               {query && query.length > 0 ? (
                 <div className="absolute inset-y-0 right-16 flex items-center">
-                  <button onClick={clearInput} className="h-full px-3 text-gray-500 hover:text-gray-800">
+                  <button
+                    onClick={clearInput}
+                    className="h-full px-3 text-gray-500 hover:text-gray-800 focus:outline-none"
+                  >
                     <svg
                       className="w-6 h-6"
                       fill="none"
