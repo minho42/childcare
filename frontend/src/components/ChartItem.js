@@ -16,7 +16,7 @@ const ChartItem = ({ area, rating }) => {
       <div data-tip data-for={uniqueId} className="flex flex-col items-center">
         <div className="text-sm text-gray-400">{rating}</div>
         {tempArray.map((item) => {
-          return <div key={uuidv4()} className="w-4 h-3 bg-yellow-200 border-t-2 border-white"></div>;
+          return <div key={uuidv4()} className="w-4 h-3 rounded-sm bg-yellow-200 mt-px"></div>;
         })}
         <div className="text-xs text-gray-400">{area.slice(0, 1)}</div>
       </div>
