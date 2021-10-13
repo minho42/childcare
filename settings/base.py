@@ -85,8 +85,6 @@ CORS_ORIGIN_WHITELIST = (
     "https://127.0.0.1:8080",
     "https://127.0.0.1:8000",
     "https://childcares.netlify.app",
-    "https://nqsratings.com",
-    "https://www.nqsratings.com",
 )
 
 REST_FRAMEWORK = {

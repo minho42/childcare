@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS += [".childcares.herokuapp.com", "nqsratings.com", "www.nqsratings.com"]
+ALLOWED_HOSTS += [".childcares.herokuapp.com"]
 
 # Heroku
 REDIS_URL = env("REDIS_URL")
