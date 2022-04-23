@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ChildcareList from "./components/ChildcareList";
 import About from "./components/About";
@@ -8,14 +8,10 @@ function App() {
     <div className="text-gray-800">
       <Router>
         <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <ChildcareList />
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<ChildcareList />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </Router>
     </div>
   );
