@@ -22,7 +22,7 @@ const ChildcareList = () => {
   };
 
   const handleSearchQueryChange = (e) => {
-    setQuery(e.target.value.toLowerCase().trim());
+    setQuery(e.target.value.toLowerCase());
   };
 
   const clearInput = () => {
@@ -31,7 +31,8 @@ const ChildcareList = () => {
   };
 
   const doSearch = async () => {
-    if (query.length < 1) {
+    const trimmedQuery = query.trim();
+    if (trimmedQuery.length < 1) {
       setIsSearching(false);
       setChildcares([]);
       setMessage("");
@@ -40,8 +41,8 @@ const ChildcareList = () => {
 
     setIsSearching(true);
 
-    // const res = await fetch(`http://localhost:8000/search/?q=${query}`)
-    const res = await fetch(`https://childcares.herokuapp.com/search/?q=${query}`);
+    // const res = await fetch(`http://localhost:8000/search/?q=${trimmedQuery}`)
+    const res = await fetch(`https://childcares.herokuapp.com/search/?q=${trimmedQuery}`);
     const searchedChildcares = await res.json();
     setChildcares(searchedChildcares);
     setIsSearching(false);
