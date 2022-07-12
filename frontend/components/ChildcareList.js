@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import ChildcareItem from "./ChildcareItem";
+import { ChildcareItem } from "./ChildcareItem";
+import { SearchIcon, XIcon } from "@heroicons/react/outline";
 
-const ChildcareList = () => {
+export const ChildcareList = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [query, setQuery] = useState("");
   const [childcares, setChildcares] = useState([]);
@@ -55,7 +56,7 @@ const ChildcareList = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center pt-2 px-2">
+    <div className="flex flex-col justify-center pt-2 px-2 space-y-3">
       <div className="mx-3">
         <form onSubmit={handleFormSubmit}>
           <label htmlFor="search" className="text-center mb-1 mr-2">
@@ -75,44 +76,18 @@ const ChildcareList = () => {
             <div>
               <button
                 onClick={doSearch}
-                className="absolute inset-y-0 right-0 h-full flex items-center  text-gray-500 hover:text-gray-800 px-3 py-2 rounded-lg focus:outline-none"
+                className="absolute inset-y-0 right-0 h-full flex items-center text-gray-500 hover:text-black px-3 py-2 rounded-lg focus:outline-none"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  ></path>
-                </svg>
+                <SearchIcon className="w-7 h-7" />
               </button>
 
               {query && query.length > 0 ? (
-                <div className="absolute inset-y-0 right-16 flex items-center">
+                <div className="absolute inset-y-0 right-12 flex items-center">
                   <button
                     onClick={clearInput}
                     className="h-full px-3 text-gray-500 hover:text-gray-800 focus:outline-none"
                   >
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      ></path>
-                    </svg>
+                    <XIcon className="w-7 h-7" />
                   </button>
                 </div>
               ) : (
@@ -131,5 +106,3 @@ const ChildcareList = () => {
     </div>
   );
 };
-
-export default ChildcareList;

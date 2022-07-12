@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
-import ChartItem from "./ChartItem";
+import { ChartItem } from "./ChartItem";
 
-const Chart = ({ ratings }) => {
+export const Chart = ({ ratings }) => {
   const qualityAreas = [
     "1. Educational program and practice",
     "2. Children's health and safety",
@@ -13,12 +13,10 @@ const Chart = ({ ratings }) => {
   ];
 
   return (
-    <div className="flex items-end justify-end space-x-2 pr-1">
+    <div className="flex items-end justify-center space-x-3">
       {ratings.map((rating, i) => {
-        return <ChartItem key={uuidv4()} area={qualityAreas[i]} rating={rating} className="pb-2" />;
+        return <ChartItem key={uuidv4()} area={qualityAreas[i]} rating={rating} className="" />;
       })}
     </div>
   );
 };
-
-export default Chart;
