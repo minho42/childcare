@@ -69,19 +69,6 @@ const About = () => {
         {lastUpdate ? <div>Synced: {lastUpdate}</div> : ""}
         {totalCount ? <div>Total: {totalCount}</div> : <div>loading...</div>}
       </div>
-
-      <div className="flex space-x-4 mb-6">
-        <div>
-          <a
-            href="https://twitter.com/minhokim42"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-blue-700 underline ml-1"
-          >
-            twitter
-          </a>
-        </div>
-      </div>
     </div>
   );
 };
