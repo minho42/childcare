@@ -8,15 +8,7 @@ export const ChildcareList = () => {
   const [message, setMessage] = useState("");
   const inputRef = useRef();
 
-  const pingHeroku = async () => {
-    const res = await fetch("https://childcares.herokuapp.com");
-    const { data } = await res.json();
-    console.log(data);
-  };
-
-  useEffect(() => {
-    pingHeroku();
-  }, []);
+  useEffect(() => {}, []);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -33,8 +25,7 @@ export const ChildcareList = () => {
 
     setIsSearching(true);
 
-    // const res = await fetch(`http://localhost:8000/search/?q=${query}`)
-    const res = await fetch(`https://childcares.herokuapp.com/search/?q=${query}`);
+    const res = await fetch(`http://localhost:8000/search/?q=${query}`);
     const searchedChildcares = await res.json();
     setChildcares(searchedChildcares);
     setIsSearching(false);

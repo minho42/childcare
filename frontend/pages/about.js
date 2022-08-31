@@ -5,7 +5,7 @@ const About = () => {
   const [lastUpdate, setLastUpdate] = useState("loading...");
   const [totalCount, setTotalCount] = useState("loading...");
   const getStats = async () => {
-    const res = await fetch("https://childcares.herokuapp.com/stats");
+    const res = await fetch("http://localhost:8000/stats");
     const stats = await res.json();
 
     if (stats.lastUpdate) {

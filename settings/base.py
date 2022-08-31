@@ -1,6 +1,5 @@
 from pathlib import Path
 
-import django_heroku
 import environ
 
 env = environ.Env(DEBUG=(bool, False))
@@ -173,7 +172,5 @@ CSP_FONT_SRC = ("'self'",)
 
 CELERY_BROKER_URL = "redis://localhost:6379"
 CELERY_RESULT_BACKEND = "redis://localhost:6379"
-
-django_heroku.settings(locals())
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
