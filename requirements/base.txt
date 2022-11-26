@@ -1,4 +1,5 @@
 celery
+dj-database-url
 Django
 django-celery-beat
 django-cors-headers
