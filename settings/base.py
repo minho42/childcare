@@ -16,6 +16,7 @@ DEBUG = env("DEBUG")
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
+    "childcare.up.railway.app",
 ]
 # <-- added for bebug_toolbar to appear
 INTERNAL_IPS = ["localhost", "127.0.0.1"]
@@ -83,6 +84,7 @@ CORS_ORIGIN_WHITELIST = (
     "https://127.0.0.1:8080",
     "https://127.0.0.1:8000",
     "https://childcares.netlify.app",
+    "https://childcare.up.railway.app",
 )
 
 REST_FRAMEWORK = {
