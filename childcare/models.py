@@ -1,5 +1,5 @@
 from django.db import models
-from childcareapp.models import TimeStampedModel
+from project.models import TimeStampedModel
 
 
 class Childcare(TimeStampedModel):

@@ -34,7 +34,7 @@ class Updater:
     def _is_csv_old(self) -> bool:
         try:
             last_modified = Childcare.objects.order_by("-modified").first().modified
-            if last_modified + timedelta(hours=24) < timezone.now():
+            if last_modified + timedelta(hours=48) < timezone.now():
                 return True
             return False
         except:
@@ -281,14 +281,36 @@ class Updater:
                 overall_rating_number = self._ratingToNumber(overall_rating)
                 ratings_issued = row[column_names_and_indexes[self._index_for_field("ratings_issued")]]
 
-                prev_rating1 = self._ratingToNumber(row[column_names_and_indexes[self._index_for_field("prev_rating1")]])
-                prev_rating2 = self._ratingToNumber(row[column_names_and_indexes[self._index_for_field("prev_rating2")]])
-                prev_rating3 = self._ratingToNumber(row[column_names_and_indexes[self._index_for_field("prev_rating3")]])
-                prev_rating4 = self._ratingToNumber(row[column_names_and_indexes[self._index_for_field("prev_rating4")]])
-                prev_rating5 = self._ratingToNumber(row[column_names_and_indexes[self._index_for_field("prev_rating5")]])
-                prev_rating6 = self._ratingToNumber(row[column_names_and_indexes[self._index_for_field("prev_rating6")]])
-                prev_rating7 = self._ratingToNumber(row[column_names_and_indexes[self._index_for_field("prev_rating7")]])
-                prev_ratings = [prev_rating1, prev_rating2, prev_rating3, prev_rating4, prev_rating5, prev_rating6, prev_rating7]
+                prev_rating1 = self._ratingToNumber(
+                    row[column_names_and_indexes[self._index_for_field("prev_rating1")]]
+                )
+                prev_rating2 = self._ratingToNumber(
+                    row[column_names_and_indexes[self._index_for_field("prev_rating2")]]
+                )
+                prev_rating3 = self._ratingToNumber(
+                    row[column_names_and_indexes[self._index_for_field("prev_rating3")]]
+                )
+                prev_rating4 = self._ratingToNumber(
+                    row[column_names_and_indexes[self._index_for_field("prev_rating4")]]
+                )
+                prev_rating5 = self._ratingToNumber(
+                    row[column_names_and_indexes[self._index_for_field("prev_rating5")]]
+                )
+                prev_rating6 = self._ratingToNumber(
+                    row[column_names_and_indexes[self._index_for_field("prev_rating6")]]
+                )
+                prev_rating7 = self._ratingToNumber(
+                    row[column_names_and_indexes[self._index_for_field("prev_rating7")]]
+                )
+                prev_ratings = [
+                    prev_rating1,
+                    prev_rating2,
+                    prev_rating3,
+                    prev_rating4,
+                    prev_rating5,
+                    prev_rating6,
+                    prev_rating7,
+                ]
                 try:
                     prev_average_ratings = round(sum(prev_ratings) / len(prev_ratings), 1)
                 except TypeError:

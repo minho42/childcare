@@ -1,7 +1,7 @@
 from celery import Celery
 from celery.schedules import crontab
 
-from childcareapp.celery import app
+from project.celery import app
 
 from .updater import Updater
 

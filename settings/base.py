@@ -53,7 +53,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "childcareapp.urls"
+ROOT_URLCONF = "project.urls"
 
 TEMPLATES = [
     {
@@ -99,7 +99,7 @@ REST_FRAMEWORK = {
 
 SITE_ID = 1
 
-WSGI_APPLICATION = "childcareapp.wsgi.application"
+WSGI_APPLICATION = "project.wsgi.application"
 
 DATABASES = {
     "default": {
