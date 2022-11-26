@@ -14,12 +14,3 @@ if settings.DEBUG:
 
     urlpatterns += [path("__debug__/", include(debug_toolbar.urls))]
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-def trigger_error(request):
-    division_by_zero = 1 / 0
-
-
-urlpatterns += [
-    path("sentry-debug/", trigger_error),
-]

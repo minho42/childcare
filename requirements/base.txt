@@ -9,5 +9,4 @@ psycopg2-binary
 random_user_agent
 redis
 requests
-sentry-sdk
 whitenoise
