@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react";
 import { formatDistance } from "date-fns";
 
+type Tstats = {
+  lastUpdate: string;
+  totalCount: number;
+};
+
 const About = () => {
-  const [lastUpdate, setLastUpdate] = useState("loading...");
-  const [totalCount, setTotalCount] = useState("loading...");
+  const [lastUpdate, setLastUpdate] = useState<string>("loading...");
+  const [totalCount, setTotalCount] = useState<number | "loading...">("loading...");
   const getStats = async () => {
     const res = await fetch("http://localhost:8000/stats");
-    const stats = await res.json();
+    const stats: Tstats = await res.json();
 
     if (stats.lastUpdate) {
-      if (new Date() - new Date(stats.lastUpdate) >= 30 * 1000 * 1) {
+      if (new Date().valueOf() - new Date(stats.lastUpdate).valueOf() >= 30 * 1000 * 1) {
         setLastUpdate(formatDistance(new Date(stats.lastUpdate), new Date()) + " ago");
       } else {
         setLastUpdate("currently being synced...");

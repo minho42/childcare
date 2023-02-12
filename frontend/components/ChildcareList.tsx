@@ -6,7 +6,7 @@ export const ChildcareList = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [childcares, setChildcares] = useState([]);
   const [message, setMessage] = useState("");
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>();
 
   useEffect(() => {}, []);
 

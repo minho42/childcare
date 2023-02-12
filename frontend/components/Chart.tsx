@@ -15,7 +15,7 @@ export const Chart = ({ ratings }) => {
   return (
     <div className="flex items-end justify-center space-x-3">
       {ratings.map((rating, i) => {
-        return <ChartItem key={uuidv4()} area={qualityAreas[i]} rating={rating} className="" />;
+        return <ChartItem key={uuidv4()} area={qualityAreas[i]} rating={rating} />;
       })}
     </div>
   );

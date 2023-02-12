@@ -6,7 +6,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Childcare Ratings - NSW</title>
-        <meta name="description" content="Covid swab list" />
+        <meta name="description" content="Childcare Ratings" />
       </Head>
       <ChildcareList />
     </div>
