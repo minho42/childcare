@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { ChildcareItem } from "./ChildcareItem";
-import { SearchIcon } from "@heroicons/react/outline";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 export const ChildcareList = () => {
   const [isSearching, setIsSearching] = useState(false);
@@ -59,7 +59,7 @@ export const ChildcareList = () => {
                 onClick={doSearch}
                 className="absolute inset-y-0 right-0 h-full flex items-center text-gray-500 hover:text-black px-3 py-2 rounded-lg focus:outline-none"
               >
-                <SearchIcon className="w-7 h-7" />
+                <MagnifyingGlassIcon className="w-7 h-7" />
               </button>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { useState, useEffect } from "react";
 import { Chart } from "./Chart";
-import { ArrowRightIcon } from "@heroicons/react/outline";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export const ChildcareItem = ({
   data: {
