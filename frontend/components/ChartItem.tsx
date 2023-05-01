@@ -14,7 +14,20 @@ export const ChartItem = ({ area, rating }) => {
       <div className="flex flex-col items-center">
         <div className="">{rating}</div>
         {tempArray.map((item) => {
-          return <div key={uuidv4()} className="w-6 h-6 rounded-sm bg-gray-200 mt-px mb-px"></div>;
+          return (
+            <div
+              key={uuidv4()}
+              className={`w-6 h-6 rounded-sm ${
+                rating >= 4
+                  ? "bg-green-400"
+                  : rating >= 3
+                  ? "bg-amber-300"
+                  : rating >= 2
+                  ? "bg-red-300"
+                  : "bg-gray-200"
+              }  mt-px mb-px`}
+            ></div>
+          );
         })}
         <div className="">{area.slice(0, 1)}</div>
       </div>

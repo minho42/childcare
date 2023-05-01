@@ -52,7 +52,7 @@ export const ChildcareItem = ({
           {prev_average_ratings && prev_average_ratings > 0 ? (
             <div className="flex items-center ml-2">
               <div className="flex flex-col items-center">
-                <div className="text-2xl border-2 border-transparent bg-gray-100 rounded-lg px-3 py-2">
+                <div className="text-2xl border-2 border-transparent rounded-lg px-3 py-2">
                   {prev_average_ratings}
                 </div>
                 <div className="">{prev_ratings_issued}</div>
@@ -68,7 +68,21 @@ export const ChildcareItem = ({
 
           {average_ratings && average_ratings > 0 ? (
             <div className="flex flex-col items-center justify-center ml-1">
-              <div className="text-2xl border-2 border-black rounded-lg px-3 py-2">{average_ratings}</div>
+              <div
+                className={`text-2xl border-2 border-black rounded-lg px-3 py-2
+              ${
+                average_ratings >= 4
+                  ? "bg-green-200"
+                  : average_ratings >= 3
+                  ? "bg-amber-200"
+                  : average_ratings >= 2
+                  ? "bg-red-200"
+                  : "bg-gray-200"
+              }
+              `}
+              >
+                {average_ratings}
+              </div>
               <div className="">{ratings_issued}</div>
             </div>
           ) : (
