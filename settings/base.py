@@ -85,7 +85,7 @@ CORS_ORIGIN_WHITELIST = (
     "http://localhost:3000",
     "https://127.0.0.1:8080",
     "https://127.0.0.1:8000",
-    "https://childcares.pages.dev",
+    "childcares.pages.dev",
 )
 
 REST_FRAMEWORK = {
