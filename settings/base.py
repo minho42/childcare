@@ -102,12 +102,12 @@ SITE_ID = 1
 
 WSGI_APPLICATION = "project.wsgi.application"
 
+# https://github.com/jazzband/dj-database-url/
 DATABASES = {
     "default": dj_database_url.config(
-        # default=env("DATABASE_URL"), 
         conn_max_age=600,
-        # conn_health_checks=True, 
-        ssl_require=True)
+        conn_health_checks=True,
+    ),
 }
 
 # DATABASES = {
