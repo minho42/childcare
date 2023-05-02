@@ -102,8 +102,13 @@ SITE_ID = 1
 
 WSGI_APPLICATION = "project.wsgi.application"
 
-DATABASES = {}
-DATABASES["default"] = dj_database_url.config(default=env("DATABASE_URL"), conn_max_age=600, ssl_require=True)
+DATABASES = {
+    "default": dj_database_url.config(
+        default=env("DATABASE_URL"), 
+        conn_max_age=600,
+        conn_health_checks=True, 
+        ssl_require=True)
+}
 
 # DATABASES = {
 #     "default": {
