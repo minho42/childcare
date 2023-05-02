@@ -1,4 +1,6 @@
 from pathlib import Path
+
+import dj_database_url
 import environ
 
 env = environ.Env(DEBUG=(bool, False))
@@ -100,16 +102,23 @@ SITE_ID = 1
 
 WSGI_APPLICATION = "project.wsgi.application"
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "childcareapp",
-        "USER": "childcareappuser",
-        "PASSWORD": env("CHILDCAREAPP_DB_PASSWORD"),
-        "HOST": "localhost",
-        "PORT": "5432",
-    }
-}
+DATABASES = {}
+DATABASES["default"] = dj_database_url.config(default=env("DATABASE_URL"), conn_max_age=600, ssl_require=True)
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "childcareapp",
+#         "USER": "childcareappuser",
+#         "PASSWORD": env("CHILDCAREAPP_DB_PASSWORD"),
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+#     # "default": {
+#     #     "ENGINE": "django.db.backends.sqlite3",
+#     #     "NAME": "childcare_database"
+#     # }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
