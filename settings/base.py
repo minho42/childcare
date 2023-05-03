@@ -19,6 +19,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "childcare.up.railway.app",
+    "https://childcare-tdr.pages.dev",
 ]
 # <-- added for bebug_toolbar to appear
 INTERNAL_IPS = ["localhost", "127.0.0.1"]
