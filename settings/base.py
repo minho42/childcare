@@ -18,7 +18,7 @@ DEBUG = env("DEBUG")
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "childcare.up.railway.app/",
+    "childcare.up.railway.app",
 ]
 # <-- added for bebug_toolbar to appear
 INTERNAL_IPS = ["localhost", "127.0.0.1"]
@@ -44,7 +44,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    # The WhiteNoise middleware should be placed directly after the Django SecurityMiddleware and before all other middleware
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
