@@ -10,7 +10,7 @@ const About = () => {
   const [lastUpdate, setLastUpdate] = useState<string>("loading...");
   const [totalCount, setTotalCount] = useState<number | "loading...">("loading...");
   const getStats = async () => {
-    const res = await fetch("https://childcare-tdr.pages.dev/stats");
+    const res = await fetch("http://localhost:8000/stats");
     const stats: Tstats = await res.json();
 
     if (stats.lastUpdate) {
