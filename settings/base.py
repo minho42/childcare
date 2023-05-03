@@ -15,7 +15,10 @@ SECRET_KEY = env("CHILDCAREAPP_SECRET_KEY")
 
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["*"
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "childcare.up.railway.app",
 ]
 # <-- added for bebug_toolbar to appear
 INTERNAL_IPS = ["localhost", "127.0.0.1"]
@@ -81,6 +84,7 @@ CORS_ORIGIN_WHITELIST = (
     "http://localhost:3000",
     "https://127.0.0.1:8080",
     "https://127.0.0.1:8000",
+    "https://childcare.up.railway.app",
     "https://childcares.pages.dev",
 )
 
