@@ -15,10 +15,7 @@ SECRET_KEY = env("CHILDCAREAPP_SECRET_KEY")
 
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "childcare.up.railway.app",
+ALLOWED_HOSTS = ["*"
 ]
 # <-- added for bebug_toolbar to appear
 INTERNAL_IPS = ["localhost", "127.0.0.1"]
