@@ -85,7 +85,7 @@ CORS_ALLOWED_ORIGINS = (
     "https://127.0.0.1:8080",
     "https://127.0.0.1:8000",
     "https://childcare.up.railway.app",
-    "https://childcares.pages.dev",
+    "https://childcare-tdr.pages.dev",
 )
 
 REST_FRAMEWORK = {
