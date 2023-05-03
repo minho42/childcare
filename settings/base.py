@@ -78,9 +78,9 @@ TEMPLATES = [
 
 AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = (
+CORS_ALLOWED_ORIGINS = (
     "http://localhost:3000",
     "https://127.0.0.1:8080",
     "https://127.0.0.1:8000",
