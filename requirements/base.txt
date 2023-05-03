@@ -11,3 +11,4 @@ random_user_agent
 redis
 requests
 whitenoise
+django-debug-toolbar
