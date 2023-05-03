@@ -25,7 +25,7 @@ export const ChildcareList = () => {
 
     setIsSearching(true);
 
-    const res = await fetch(`http://localhost:8000/search/?q=${query}`);
+    const res = await fetch(`https://childcare-tdr.pages.dev/search/?q=${query}`);
     const searchedChildcares = await res.json();
     setChildcares(searchedChildcares);
     setIsSearching(false);
