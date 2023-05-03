@@ -1,7 +1,6 @@
 from .base import *
 
-# DEBUG = False
-DEBUG = True
+DEBUG = False
 
 REDIS_URL = env("REDIS_URL")
 CELERY_BROKER_URL = REDIS_URL
