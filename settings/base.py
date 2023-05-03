@@ -89,7 +89,6 @@ CORS_ALLOWED_ORIGINS = (
 )
 
 REST_FRAMEWORK = {
-    # "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticatedOrReadOnly"],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         # "rest_framework_simplejwt.authentication.JWTAuthentication",
@@ -110,21 +109,6 @@ DATABASES = {
         conn_health_checks=True,
     ),
 }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "childcareapp",
-#         "USER": "childcareappuser",
-#         "PASSWORD": env("CHILDCAREAPP_DB_PASSWORD"),
-#         "HOST": "localhost",
-#         "PORT": "5432",
-#     }
-#     # "default": {
-#     #     "ENGINE": "django.db.backends.sqlite3",
-#     #     "NAME": "childcare_database"
-#     # }
-# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
@@ -170,19 +154,6 @@ CELERY_RESULT_SERIALIZER = "json"
 # CELERY_ENABLE_UTC = True
 CELERY_TIMEZONE = "Australia/ACT"
 CELERY_TASK_SOFT_TIME_LIMIT = 900
-
-
-# https://django-csp.readthedocs.io/en/latest/
-# https: // github.com/mozilla/django-csp
-# django-csp, Content-Security-Policy
-CSP_DEFAULT_SRC = ("'none'",)
-# CSP_STYLE_SRC = ("'self'", "https://use.fontawesome.com", "https://code.jquery.com",
-#                  "https://cdnjs.cloudflare.com/ajax/", "https://stackpath.bootstrapcdn.com/bootstrap", "https://code.jquery.com", "https://cdn.jsdelivr.net/npm/vue@2.6.0")
-# CSP_SCRIPT_SRC_ELEM = ("'self'", "https://code.jquery.com")
-# CSP_SCRIPT_SRC = ("'self'", "https://cdnjs.cloudflare.com/ajax/", )
-CSP_IMG_SRC = ("'self'",)
-CSP_FONT_SRC = ("'self'",)
-
 
 CELERY_BROKER_URL = "redis://localhost:6379"
 CELERY_RESULT_BACKEND = "redis://localhost:6379"
