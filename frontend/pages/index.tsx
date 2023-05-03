@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Childcare Ratings - NSW</title>
+        <title>Childcare Ratings</title>
         <meta name="description" content="Childcare Ratings" />
       </Head>
       <ChildcareList />

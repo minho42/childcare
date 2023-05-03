@@ -106,8 +106,8 @@ class Updater:
         if not current_count:
             return True
 
-        # new_count = self._get_new_count_for_all()
-        new_count = self._get_new_count_for_nsw()
+        new_count = self._get_new_count_for_all()
+        # new_count = self._get_new_count_for_nsw()
         print(f"current_count: {current_count}")
         print(f"new_count: {new_count}")
         return current_count != new_count
@@ -241,8 +241,8 @@ class Updater:
             return
 
         print("Need to update CSV")
-        # self._download_csv_for_all()
-        self._download_csv_for_nsw()
+        self._download_csv_for_all()
+        # self._download_csv_for_nsw()
 
         if not Path(CSV_FILE_NAME).is_file():
             print("Something wrong! csv not exist")

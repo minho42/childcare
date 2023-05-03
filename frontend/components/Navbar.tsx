@@ -12,7 +12,7 @@ export const Navbar = () => {
         ${router.pathname == "/" ? "" : ""}
         `}
         >
-          Childcare Ratings - NSW
+          Childcare Ratings
         </div>
       </Link>
 

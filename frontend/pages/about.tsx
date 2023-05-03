@@ -37,7 +37,7 @@ const About = () => {
         <div className="flex flex-wrap">
           Data from:
           <a
-            href="https://www.acecqa.gov.au/resources/national-registers/services?s=&f%5B0%5D=service_state%3ANSW"
+            href="https://www.acecqa.gov.au/resources/national-registers/services"
             target="_blank"
             rel="noopener noreferrer"
             className="items-center text-blue-700 underline ml-2"
