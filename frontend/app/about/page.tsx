@@ -1,33 +1,29 @@
-import { useState, useEffect } from "react";
 import { formatDistance } from "date-fns";
 
-type Tstats = {
+type Stats = {
   lastUpdate: string;
   totalCount: number;
 };
 
-const About = () => {
-  const [lastUpdate, setLastUpdate] = useState<string>("loading...");
-  const [totalCount, setTotalCount] = useState<number | "loading...">("loading...");
-  const getStats = async () => {
-    const res = await fetch("http://localhost:8000/stats");
-    const stats: Tstats = await res.json();
+async function getStats() {
+  const res = await fetch("http://127.0.0.1:8000/stats");
+  const data: Stats = await res.json();
+  return data;
+}
 
-    if (stats.lastUpdate) {
-      if (new Date().valueOf() - new Date(stats.lastUpdate).valueOf() >= 30 * 1000 * 1) {
-        setLastUpdate(formatDistance(new Date(stats.lastUpdate), new Date()) + " ago");
-      } else {
-        setLastUpdate("currently being synced...");
-      }
+export default async function About() {
+  const stats = await getStats();
+  let lastUpdate;
+  if (stats.lastUpdate) {
+    if (new Date().valueOf() - new Date(stats.lastUpdate).valueOf() >= 30 * 1000 * 1) {
+      lastUpdate = formatDistance(new Date(stats.lastUpdate), new Date(), {
+        includeSeconds: false,
+        addSuffix: true,
+      });
+    } else {
+      lastUpdate = "Currently being synced...";
     }
-    if (stats.totalCount) {
-      setTotalCount(stats.totalCount);
-    }
-  };
-
-  useEffect(() => {
-    getStats();
-  }, []);
+  }
 
   return (
     <div className="flex flex-col items-center justify-center px-6 mt-3">
@@ -72,10 +68,8 @@ const About = () => {
 
       <div className="mb-3">
         {lastUpdate ? <div>Synced: {lastUpdate}</div> : ""}
-        {totalCount ? <div>Total: {totalCount}</div> : <div>loading...</div>}
+        {stats.totalCount ? <div>Total: {stats.totalCount}</div> : <div>loading...</div>}
       </div>
     </div>
   );
-};
-
-export default About;
+}

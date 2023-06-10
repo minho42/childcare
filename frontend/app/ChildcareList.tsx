@@ -1,8 +1,10 @@
+"use client";
+
 import { useRef, useState, useEffect } from "react";
 import { ChildcareItem } from "./ChildcareItem";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
-export const ChildcareList = () => {
+export default function ChildcareList() {
   const [isSearching, setIsSearching] = useState(false);
   const [childcares, setChildcares] = useState([]);
   const [message, setMessage] = useState("");
@@ -25,7 +27,7 @@ export const ChildcareList = () => {
 
     setIsSearching(true);
 
-    const res = await fetch(`http://localhost:8000/search/?q=${query}`);
+    const res = await fetch(`http://127.0.0.1:8000/search/?q=${query}`);
     const searchedChildcares = await res.json();
     setChildcares(searchedChildcares);
     setIsSearching(false);
@@ -73,4 +75,4 @@ export const ChildcareList = () => {
       {message && message.length > 0 ? <div className="text-center py-3">{message}</div> : ""}
     </div>
   );
-};
+}
