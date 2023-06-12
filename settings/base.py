@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import dj_database_url
 import environ
 
 env = environ.Env(DEBUG=(bool, False))
@@ -98,14 +99,12 @@ SITE_ID = 1
 
 WSGI_APPLICATION = "project.wsgi.application"
 
+# https://github.com/jazzband/dj-database-url/
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "db",
-        "OPTIONS": {
-            "timeout": 20,
-        },
-    }
+    "default": dj_database_url.config(
+        conn_max_age=600,
+        conn_health_checks=True,
+    ),
 }
 
 AUTH_PASSWORD_VALIDATORS = [
