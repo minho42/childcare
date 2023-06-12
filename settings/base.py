@@ -1,6 +1,5 @@
 from pathlib import Path
 
-import dj_database_url
 import environ
 
 env = environ.Env(DEBUG=(bool, False))
@@ -18,8 +17,6 @@ DEBUG = env("DEBUG")
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "childcare.up.railway.app",
-    "childcare-tdr.pages.dev",
 ]
 # <-- added for bebug_toolbar to appear
 INTERNAL_IPS = ["localhost", "127.0.0.1"]
@@ -82,11 +79,9 @@ AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = (
-    "http://localhost:3000",
+    "http://127.0.0.1:3000",
     "https://127.0.0.1:8080",
     "https://127.0.0.1:8000",
-    "https://childcare.up.railway.app",
-    "https://childcare-tdr.pages.dev",
 )
 
 REST_FRAMEWORK = {
@@ -103,12 +98,14 @@ SITE_ID = 1
 
 WSGI_APPLICATION = "project.wsgi.application"
 
-# https://github.com/jazzband/dj-database-url/
 DATABASES = {
-    "default": dj_database_url.config(
-        conn_max_age=600,
-        conn_health_checks=True,
-    ),
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "db",
+        "OPTIONS": {
+            "timeout": 20,
+        },
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [

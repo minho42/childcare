@@ -1,12 +1,10 @@
 celery
-dj-database-url
 Django
 django-celery-beat
 django-cors-headers
 django-environ
 djangorestframework
 gunicorn
-psycopg2-binary
 random_user_agent
 redis
 requests

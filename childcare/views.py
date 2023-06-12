@@ -24,7 +24,10 @@ class ChildcareStats(APIView):
     http_method_names = ["get"]
 
     def get(self, request):
-        last_update = Childcare.objects.order_by("-modified")[1].modified
+        try:
+            last_update = Childcare.objects.order_by("-modified")[1].modified
+        except IndexError:
+            last_update = ""
         total_count = Childcare.objects.count()
         data = {"lastUpdate": last_update, "totalCount": total_count}
         return Response(data)
@@ -40,7 +43,10 @@ class ChildcareSearch(generics.ListAPIView):
             return None
 
         result = Childcare.objects.filter(
-            Q(name__icontains=query) | Q(address__icontains=query) | Q(suburb__icontains=query) | Q(postcode__exact=query)
+            Q(name__icontains=query)
+            | Q(address__icontains=query)
+            | Q(suburb__icontains=query)
+            | Q(postcode__exact=query)
         ).order_by(
             "-overall_rating_number",
             "-average_ratings",
@@ -53,7 +59,9 @@ class ChildcareSearch(generics.ListAPIView):
         if result.count() > 0:
             return result
 
-        unique_suburbs = list(Childcare.objects.order_by().values_list("suburb").distinct())  # list of tuples [('RYDE',), ]
+        unique_suburbs = list(
+            Childcare.objects.order_by().values_list("suburb").distinct()
+        )  # list of tuples [('RYDE',), ]
         unique_suburbs = [u[0] for u in unique_suburbs]
 
         possible_matches = get_close_matches(query.upper(), unique_suburbs, cutoff=0.8)
