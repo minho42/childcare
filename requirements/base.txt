@@ -1,7 +1,9 @@
 celery
+dj-database-url
 Django
 django-celery-beat
 django-cors-headers
+django-debug-toolbar
 django-environ
 djangorestframework
 gunicorn
@@ -10,4 +12,3 @@ random_user_agent
 redis
 requests
 whitenoise
-django-debug-toolbar

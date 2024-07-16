@@ -5,7 +5,6 @@ asttokens==2.2.1
 async-timeout==4.0.2
 autopep8==2.0.2
 backcall==0.2.0
-backports.zoneinfo==0.2.1
 billiard==4.1.0
 black==23.3.0
 celery==5.3.0
