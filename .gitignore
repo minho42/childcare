@@ -1,7 +1,6 @@
 venv/
 .env
 *.pyc
-db.sqlite3
 .vscode/
 .DS_Store
 .coverage
