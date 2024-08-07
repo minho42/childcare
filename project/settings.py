@@ -1,6 +1,5 @@
 from pathlib import Path
 
-import dj_database_url
 import environ
 
 env = environ.Env(DEBUG=(bool, False))
@@ -13,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env("CHILDCAREAPP_SECRET_KEY")
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 # <-- added for bebug_toolbar to appear
@@ -37,6 +36,10 @@ INSTALLED_APPS = [
     # local apps
     "childcare",
 ]
+INSTALLED_APPS += [
+    "debug_toolbar",
+    "django_extensions",
+]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -49,6 +52,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+MIDDLEWARE += ("debug_toolbar.middleware.DebugToolbarMiddleware",)
 
 ROOT_URLCONF = "project.urls"
 
@@ -152,3 +156,5 @@ CELERY_BROKER_URL = "redis://localhost:6379"
 CELERY_RESULT_BACKEND = "redis://localhost:6379"
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+
