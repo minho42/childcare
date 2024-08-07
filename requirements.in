@@ -1,0 +1,13 @@
+celery
+Django
+django-celery-beat
+django-cors-headers
+django-debug-toolbar
+django-environ
+django-extensions
+djangorestframework
+gunicorn
+random-user-agent
+redis
+requests
+whitenoise
