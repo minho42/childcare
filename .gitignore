@@ -19,3 +19,4 @@ staticfiles/
 celerybeat-schedule.db
 celerybeat.pid
 data.csv
+dump.rdb
