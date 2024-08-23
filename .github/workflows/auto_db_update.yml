@@ -35,6 +35,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
+          git config --global user.email "minho42@gmail.com"
+          git config --global user.name "Min ho Kim"
           git add db.sqlite3
           git commit -m "$(date '+%Y-%m-%d:%H:%M:%S-auto-db-update')"
           git push
