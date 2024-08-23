@@ -1,0 +1,46 @@
+name: automated db update
+
+on:
+  schedule:
+    - cron: "0 12 * * 1" # Runs at 12:00 PM every Monday
+  workflow_dispatch: # Allows manual triggering from the GitHub Actions UI
+
+jobs:
+  update-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Start Django server
+        run: |
+          source .venv/bin/activate
+          nohup python3 manage.py runserver > django.log 2>&1 &
+          sleep 5
+
+      - name: Start Celery worker
+        run: |
+          source .venv/bin/activate
+          nohup celery -A project worker --beat --scheduler django --loglevel=info > celery.log 2>&1 &
+          sleep 60
+
+      - name: Commit and push changes
+        run: |
+          git add db.sqlite3
+          git commit -m "$(date '+%Y-%m-%d:%H:%M:%S-auto-db-update')"
+          git push
+
+      - name: Clean up logs
+        run: |
+          rm -f django.log celery.log
