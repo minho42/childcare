@@ -2,7 +2,7 @@
 
 cd /Users/minho/code/django/childcare || exit
 
-echo "childcare: auto_dvb_update.sh"
+echo "childcare: auto_db_update.sh"
 
 source .venv/bin/activate
 
