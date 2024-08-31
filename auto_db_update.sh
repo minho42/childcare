@@ -10,6 +10,7 @@ echo "starting django server: childcare"
 nohup python3 manage.py runserver >django.log 2>&1 &
 DJANGO_PID=$!
 
+redis-cli config set stop-writes-on-bgsave-error no
 if redis-cli ping | grep -q "PONG"; then
     echo "redis is running: 🏓 PONG"
 
@@ -24,7 +25,7 @@ else
     exit 1
 fi
 
-sleep 40
+sleep 30
 
 echo "committing changes..."
 git add db.sqlite3
