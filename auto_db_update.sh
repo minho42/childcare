@@ -10,8 +10,8 @@ echo "starting django server: childcare"
 nohup python3 manage.py runserver >django.log 2>&1 &
 DJANGO_PID=$!
 
-redis-cli config set stop-writes-on-bgsave-error no
-if redis-cli ping | grep -q "PONG"; then
+/opt/homebrew/bin/redis-cli config set stop-writes-on-bgsave-error no
+if /opt/homebrew/bin/redis-cli ping | grep -q "PONG"; then
     echo "redis is running: 🏓 PONG"
 
     echo "starting celery worker: childcare"
@@ -33,7 +33,7 @@ git commit -m "$(date '+%Y-%m-%d:%H:%M:%S-auto-db-update')"
 git push
 
 echo "cleaning up logs..."
-trash django.log celery.log
+/opt/homebrew/bin/trash django.log celery.log
 
 echo "terminating processes..."
 kill $DJANGO_PID
